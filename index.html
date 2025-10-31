@@ -3,600 +3,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A/L ICT Learning Hub - Sri Lanka</title>
+    <title>IP Addressing & Networking - A/L ICT Guide</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #0c0f1d 0%, #0f0915 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
-        .lesson-item {
-            transition: all 0.3s ease;
+        .nav-link:hover {
+            transform: translateX(5px);
         }
-        .lesson-item:hover:not(.locked) {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        .lesson-item.locked {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        .unit-card:hover {
-            transform: scale(5px);
+        .binary-display {
+            background: #1f2937;
+            color: #10b981;
+            font-family: 'Courier New', monospace;
         }
     </style>
 </head>
 <body>
-    
-    <!-- Hero Section -->
-    <section class="text-white text-center py-5">
-        <div class="container">
-            <h1 class="display-3 fw-bold mb-3">
-                <i class="fas fa-graduation-cap"></i> A/L ICT Learning Hub
-            </h1>
-            <p class="lead mb-4">Complete Guide for G.C.E Advanced Level ICT - Sri Lanka</p>
-            
-            <div class="row justify-content-center g-4 mt-4">
-                <div class="col-md-3">
-                    <div class="card bg-white bg-opacity-25 border-0">
-                        <div class="card-body text-white">
-                            <h2 class="display-4 fw-bold">12</h2>
-                            <p class="mb-0">Units</p>
-                        </div>
-                    </div>
+    <div class="container py-4">
+        <div class="bg-white rounded-4 shadow-lg overflow-hidden">
+            <!-- Header -->
+            <div class="text-white text-center py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <h1 class="fw-bold mb-2"><i class="fas fa-network-wired"></i> IP Addressing & Networking</h1>
+                <p class="mb-0">Complete Guide for A/L ICT Syllabus - Sri Lanka</p>
+            </div>
+
+            <div class="row g-0">
+                <!-- Sidebar Navigation -->
+                <div class="col-md-3 bg-light p-4">
+                    <nav class="nav nav-pills flex-column sticky-top" style="top: 20px;">
+                        <a class="nav-link active" href="#basics"><i class="fas fa-info-circle me-2"></i>IP Basics</a>
+                        <a class="nav-link" href="#classes"><i class="fas fa-layer-group me-2"></i>Network Classes</a>
+                        <a class="nav-link" href="#subnet"><i class="fas fa-sitemap me-2"></i>Subnet Mask</a>
+                        <a class="nav-link" href="#ids"><i class="fas fa-fingerprint me-2"></i>Network & Host ID</a>
+                        <a class="nav-link" href="#broadcast"><i class="fas fa-broadcast-tower me-2"></i>Broadcast</a>
+                        <a class="nav-link" href="#subnetting"><i class="fas fa-project-diagram me-2"></i>Subnetting</a>
+                        <a class="nav-link" href="#calculator"><i class="fas fa-calculator me-2"></i>IP Calculator</a>
+                        <a class="nav-link" href="#example"><i class="fas fa-graduation-cap me-2"></i>Exam Question</a>
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-2"></i>Back to Home</a>
+                    </nav>
                 </div>
-                <div class="col-md-3">
-                    <div class="card bg-white bg-opacity-25 border-0">
-                        <div class="card-body  text-white">
-                            <h2 class="display-4 fw-bold">50+</h2>
-                            <p class="mb-0">Lessons</p>
+
+                <!-- Main Content -->
+                <div class="col-md-9 p-4">
+                    
+                    <!-- IP Basics -->
+                    <section id="basics" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-info-circle"></i> IP Address Basics
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-3 p-3 mb-3" style="width: 60px; height: 60px;">
+                                    <i class="fas fa-laptop fs-3"></i>
+                                </div>
+                                <h5 class="card-title">What is an IP Address?</h5>
+                                <p>An <strong>IP (Internet Protocol) address</strong> is a unique 32-bit identifier assigned to each device on a network. Think of it as a postal address for your computer.</p>
+                                
+                                <div class="alert alert-light border-start border-4 border-primary">
+                                    <strong>Example:</strong> <code>192.168.1.10</code>
+                                </div>
+                                
+                                <div class="binary-display p-3 rounded mb-3">
+                                    Binary: 11000000.10101000.00000001.00001010
+                                </div>
+                                
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Consists of <strong>4 octets</strong> (8 bits each)</li>
+                                    <li class="list-group-item">Each octet ranges from <strong>0 to 255</strong></li>
+                                    <li class="list-group-item">Total: 32 bits = 2³² = ~4.3 billion addresses</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card bg-white bg-opacity-25 border-0">
-                        <div class="card-body  text-white">
-                            <h2 class="display-4 fw-bold">100+</h2>
-                            <p class="mb-0">Examples</p>
+                    </section>
+
+                    <!-- Network Classes -->
+                    <section id="classes" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-layer-group"></i> Network Classes
+                        </h2>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                        Class A
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Range:</strong> 1.0.0.0 to 126.255.255.255</p>
+                                        <p><strong>Default Mask:</strong> 255.0.0.0 (/8)</p>
+                                        <p><strong>Networks:</strong> 126</p>
+                                        <p><strong>Hosts per network:</strong> 16,777,214</p>
+                                        <div class="alert alert-light border-start border-4 border-primary">
+                                            <code>10.20.30.40</code>
+                                        </div>
+                                        <span class="badge bg-primary">Large Organizations</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                        Class B
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Range:</strong> 128.0.0.0 to 191.255.255.255</p>
+                                        <p><strong>Default Mask:</strong> 255.255.0.0 (/16)</p>
+                                        <p><strong>Networks:</strong> 16,384</p>
+                                        <p><strong>Hosts per network:</strong> 65,534</p>
+                                        <div class="alert alert-light border-start border-4 border-success">
+                                            <code>172.16.50.100</code>
+                                        </div>
+                                        <span class="badge bg-success">Medium Organizations</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                        Class C
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Range:</strong> 192.0.0.0 to 223.255.255.255</p>
+                                        <p><strong>Default Mask:</strong> 255.255.255.0 (/24)</p>
+                                        <p><strong>Networks:</strong> 2,097,152</p>
+                                        <p><strong>Hosts per network:</strong> 254</p>
+                                        <div class="alert alert-light border-start border-4 border-warning">
+                                            <code>192.168.10.25</code>
+                                        </div>
+                                        <span class="badge bg-warning text-dark">Small Networks</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                        Class D & E
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Class D:</strong> 224.0.0.0 to 239.255.255.255</p>
+                                        <span class="badge bg-info">Multicast</span>
+                                        <hr>
+                                        <p class="mb-0"><strong>Class E:</strong> 240.0.0.0 to 255.255.255.255</p>
+                                        <span class="badge bg-secondary">Experimental</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </section>
+
+                    <!-- Subnet Mask -->
+                    <section id="subnet" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-sitemap"></i> Subnet Mask
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5>What is a Subnet Mask?</h5>
+                                <p>A subnet mask separates the <mark>network portion</mark> from the <mark>host portion</mark> of an IP address.</p>
+                                
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <h6>Binary Representation:</h6>
+                                        <div class="binary-display p-3 rounded">
+                                            255 = 11111111 (Network bits)<br>
+                                            0   = 00000000 (Host bits)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Common Masks:</h6>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">255.0.0.0 = /8 (Class A)</li>
+                                            <li class="list-group-item">255.255.0.0 = /16 (Class B)</li>
+                                            <li class="list-group-item">255.255.255.0 = /24 (Class C)</li>
+                                            <li class="list-group-item">255.255.255.128 = /25</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert alert-warning border-start border-4 border-warning mt-3">
+                                    <strong><i class="fas fa-calculator"></i> How to Find Network ID:</strong><br>
+                                    Perform AND operation between IP address and Subnet Mask
+                                </div>
+                                
+                                <div class="alert alert-light border-start border-4 border-primary">
+                                    <strong>Example:</strong><br>
+                                    IP: 192.168.50.45 (11000000.10101000.00110010.00101101)<br>
+                                    Mask: 255.255.255.0 (11111111.11111111.11111111.00000000)<br>
+                                    <strong>Network ID: 192.168.50.0</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Network & Host ID -->
+                    <section id="ids" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-fingerprint"></i> Network ID & Host ID
+                        </h2>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                        Network ID
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Definition:</strong> Identifies the entire network (all host bits = 0)</p>
+                                        <div class="alert alert-light border-start border-4 border-primary">
+                                            IP: 172.16.50.100/16<br>
+                                            Network ID: <strong>172.16.0.0</strong>
+                                        </div>
+                                        <p class="mb-0"><i class="fas fa-exclamation-triangle text-warning"></i> Cannot be assigned to devices</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                        Host ID
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Definition:</strong> Identifies a specific device within the network</p>
+                                        <div class="alert alert-light border-start border-4 border-success">
+                                            IP: 192.168.10.25/24<br>
+                                            Host ID: <strong>25</strong>
+                                        </div>
+                                        <p class="mb-0"><i class="fas fa-check-circle text-success"></i> Must be unique within network</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Broadcast -->
+                    <section id="broadcast" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-broadcast-tower"></i> Broadcast Address
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5>Direct Broadcast Address</h5>
+                                <p>Sends data to <strong>ALL devices</strong> on a specific network (all host bits = 1)</p>
+                                
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <div class="alert alert-light border-start border-4 border-primary">
+                                            <strong>Example 1:</strong><br>
+                                            Network: 192.168.10.0/24<br>
+                                            Broadcast: <strong>192.168.10.255</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="alert alert-light border-start border-4 border-primary">
+                                            <strong>Example 2:</strong><br>
+                                            Network: 172.16.0.0/16<br>
+                                            Broadcast: <strong>172.16.255.255</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert alert-info">
+                                    <strong><i class="fas fa-lightbulb"></i> Sri Lankan Example:</strong><br>
+                                    A university lab with network 10.10.5.0/24 has broadcast address <strong>10.10.5.255</strong> to reach all 254 computers simultaneously.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Subnetting -->
+                    <section id="subnetting" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-project-diagram"></i> Subnetting
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5>What is Subnetting?</h5>
+                                <p>Dividing a large network into smaller sub-networks for better management and security.</p>
+                                
+                                <div class="alert alert-warning border-start border-4 border-warning">
+                                    <strong>Formulas:</strong><br>
+                                    • Number of Subnets = 2ⁿ (n = borrowed bits)<br>
+                                    • Hosts per Subnet = 2ʰ - 2 (h = host bits)<br>
+                                    • Block Size = 256 - subnet mask value
+                                </div>
+                                
+                                <h6 class="mt-4">Example: Subnetting 192.168.10.0/24</h6>
+                                <p>Need 4 subnets → Borrow 2 bits (2² = 4)</p>
+                                <p>New Mask: 255.255.255.192 or /26</p>
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped mt-3">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Subnet</th>
+                                                <th>Network ID</th>
+                                                <th>First Host</th>
+                                                <th>Last Host</th>
+                                                <th>Broadcast</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>192.168.10.0</td>
+                                                <td>192.168.10.1</td>
+                                                <td>192.168.10.62</td>
+                                                <td>192.168.10.63</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>192.168.10.64</td>
+                                                <td>192.168.10.65</td>
+                                                <td>192.168.10.126</td>
+                                                <td>192.168.10.127</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>192.168.10.128</td>
+                                                <td>192.168.10.129</td>
+                                                <td>192.168.10.190</td>
+                                                <td>192.168.10.191</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>192.168.10.192</td>
+                                                <td>192.168.10.193</td>
+                                                <td>192.168.10.254</td>
+                                                <td>192.168.10.255</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Calculator -->
+                    <section id="calculator" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-calculator"></i> IP Subnet Calculator
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm bg-light">
+                            <div class="card-body p-4">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">IP Address:</label>
+                                        <input type="text" id="ipInput" class="form-control form-control-lg" placeholder="e.g., 192.168.1.10" value="192.248.16.91">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Subnet Mask:</label>
+                                        <input type="text" id="maskInput" class="form-control form-control-lg" placeholder="e.g., 255.255.255.0" value="255.255.255.128">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary btn-lg mt-3" onclick="calculateSubnet()">
+                                    <i class="fas fa-calculator"></i> Calculate
+                                </button>
+                                
+                                <div id="calculatorResult" class="mt-4" style="display:none;">
+                                    <!-- Results will appear here -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Exam Question -->
+                    <section id="example" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-graduation-cap"></i> A/L Exam Question
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0">Practice Question</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Question:</strong> A computer in specific network has <strong>192.248.16.91</strong> as an IP address and subnet mask is <strong>255.255.255.128</strong>. Choose the wrong IP address that can't be used on a computer in this network.</p>
+                                
+                                <div class="list-group mt-3">
+                                    <button class="list-group-item list-group-item-action" onclick="checkAnswer(1)">
+                                        1. 192.248.16.161
+                                    </button>
+                                    <button class="list-group-item list-group-item-action" onclick="checkAnswer(2)">
+                                        2. 192.248.16.78
+                                    </button>
+                                    <button class="list-group-item list-group-item-action" onclick="checkAnswer(3)">
+                                        3. 192.248.16.110
+                                    </button>
+                                    <button class="list-group-item list-group-item-action" onclick="checkAnswer(4)">
+                                        4. 192.248.16.75
+                                    </button>
+                                    <button class="list-group-item list-group-item-action" onclick="checkAnswer(5)">
+                                        5. 192.248.16.120
+                                    </button>
+                                </div>
+                                
+                                <div id="answerExplanation" class="mt-4" style="display:none;">
+                                    <!-- Explanation will appear here -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Main Content -->
-    <div class="bg-white rounded-top-5 shadow-lg">
-        <div class="container py-5">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
 
-            <!-- Introduction -->
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-2">Course Units</h2>
-                <p class="text-muted lead">Master A/L ICT with comprehensive lessons, examples, and practice questions</p>
-            </div>
-
-            <!-- Unit 1: Basic Concepts of ICT -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">1</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-lightbulb text-primary"></i> Basic Concepts of ICT
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Understand the fundamentals of information and data, the data processing life cycle, and explore the societal impact and ethical considerations of ICT in modern life.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Information vs Data</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Data Processing Life Cycle</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Societal Impact & Ethics of ICT</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                    </div>
+        // IP Calculator
+        function calculateSubnet() {
+            const ip = document.getElementById('ipInput').value;
+            const mask = document.getElementById('maskInput').value;
+            
+            const ipParts = ip.split('.').map(Number);
+            const maskParts = mask.split('.').map(Number);
+            
+            if (ipParts.length !== 4 || maskParts.length !== 4 || ipParts.some(isNaN) || maskParts.some(isNaN)) {
+                alert('Please enter valid IP address and subnet mask');
+                return;
+            }
+            
+            const networkId = ipParts.map((part, i) => part & maskParts[i]);
+            const broadcast = maskParts.map((part, i) => networkId[i] | (255 - part));
+            
+            const hostBits = maskParts.reduce((acc, part) => {
+                let bits = 0;
+                let num = 255 - part;
+                while (num > 0) {
+                    bits += num & 1;
+                    num >>= 1;
+                }
+                return acc + bits;
+            }, 0);
+            
+            const totalHosts = Math.pow(2, hostBits);
+            const usableHosts = totalHosts - 2;
+            
+            const firstHost = [...networkId];
+            firstHost[3]++;
+            
+            const lastHost = [...broadcast];
+            lastHost[3]--;
+            
+            const cidr = 32 - hostBits;
+            
+            const result = `
+                <div class="alert alert-success">
+                    <h5><i class="fas fa-check-circle"></i> Calculation Results</h5>
                 </div>
-            </div>
+                <table class="table table-bordered bg-white">
+                    <tr><td><strong>IP Address:</strong></td><td>${ip}</td></tr>
+                    <tr><td><strong>Subnet Mask:</strong></td><td>${mask} (/${cidr})</td></tr>
+                    <tr><td><strong>Network ID:</strong></td><td><mark>${networkId.join('.')}</mark></td></tr>
+                    <tr><td><strong>First Usable Host:</strong></td><td>${firstHost.join('.')}</td></tr>
+                    <tr><td><strong>Last Usable Host:</strong></td><td>${lastHost.join('.')}</td></tr>
+                    <tr><td><strong>Broadcast Address:</strong></td><td><mark>${broadcast.join('.')}</mark></td></tr>
+                    <tr><td><strong>Total Hosts:</strong></td><td>${totalHosts}</td></tr>
+                    <tr><td><strong>Usable Hosts:</strong></td><td><strong class="text-success">${usableHosts}</strong></td></tr>
+                </table>
+            `;
+            
+            document.getElementById('calculatorResult').innerHTML = result;
+            document.getElementById('calculatorResult').style.display = 'block';
+        }
 
-            <!-- Unit 2: Evolution of Computers -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">2</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-history text-primary"></i> Evolution of Computers
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Journey through the different generations of computers from vacuum tubes to modern processors, and understand the advancements in computer hardware technology.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Generations of Computers (1st to 5th)</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Hardware Advancements</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
+        // Check answer
+        function checkAnswer(choice) {
+            let explanation = '';
+            
+            if (choice === 1) {
+                explanation = `
+                    <div class="alert alert-success">
+                        <h5><i class="fas fa-check-circle"></i> Correct Answer!</h5>
+                        <p><strong>Answer: Option 1 (192.248.16.161)</strong></p>
+                        
+                        <h6 class="mt-3">Explanation:</h6>
+                        <ol>
+                            <li><strong>Given:</strong> IP = 192.248.16.91, Mask = 255.255.255.128 (/25)</li>
+                            <li><strong>Block Size:</strong> 256 - 128 = 128</li>
+                            <li><strong>Subnets:</strong> Start at 0, 128, 256...</li>
+                            <li><strong>IP 91</strong> falls in range <strong>0-127</strong> (Subnet 1)</li>
+                            <li><strong>Valid range:</strong> 192.248.16.1 to 192.248.16.126</li>
+                            <li><strong>161 is in range 128-255</strong> (Subnet 2) ❌</li>
+                        </ol>
+                        
+                        <table class="table table-bordered mt-3">
+                            <tr class="table-light">
+                                <th>Subnet 1 (0-127)</th>
+                                <th>Subnet 2 (128-255)</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    ✓ 78<br>
+                                    ✓ 75<br>
+                                    ✓ 91 (Given)<br>
+                                    ✓ 110<br>
+                                    ✓ 120
+                                </td>
+                                <td>
+                                    ❌ 161 (Different subnet)
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-                </div>
-            </div>
-
-            <!-- Unit 3: Data Representation -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">3</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-binary text-primary"></i> Data Representation
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Master number systems including binary and hexadecimal, learn data encoding methods, and understand 2's complement arithmetic for negative numbers.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Number Systems (Binary, Hex, Decimal)</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Data Encoding (ASCII, Unicode)</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>2's Complement Arithmetic</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
+                `;
+            } else {
+                explanation = `
+                    <div class="alert alert-danger">
+                        <h5><i class="fas fa-times-circle"></i> Incorrect!</h5>
+                        <p>Try again. Think about which subnet the IP 192.248.16.91 belongs to with mask 255.255.255.128.</p>
+                        <p><strong>Hint:</strong> The block size is 128, creating two subnets: 0-127 and 128-255</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- Unit 4: Digital Circuits -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">4</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-microchip text-primary"></i> Digital Circuits
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Learn about logic gates (AND, OR, NOT, NAND, NOR, XOR), flip-flops for memory storage, and adder circuits for arithmetic operations.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Logic Gates & Truth Tables</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Flip-Flops (SR, D, JK)</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Adders (Half & Full Adder)</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 5: Operating Systems -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">5</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-desktop text-primary"></i> Operating Systems
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Explore the functions of operating systems, including process management, memory management, file systems, and their role in computer operations.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Functions of Operating Systems</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Process Management</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Memory & File Management</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 6: Data Communication and Networking -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition border-primary">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">6</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-network-wired text-primary"></i> Data Communication and Networking
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Learn about signals, transmission media, network topologies, the OSI model, TCP/IP protocols, and network security fundamentals.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="networking_guide.html" class="list-group-item list-group-item-action lesson-item bg-primary text-white">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-globe me-2"></i>
-                                    <span>IP Addressing & Networking</span>
-                                </div>
-                                <span class="badge bg-success">Available <i class="fas fa-arrow-right ms-1"></i></span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Signals & Transmission Media</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Network Topologies</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>OSI Model & TCP/IP</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Network Security</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 7: Information Systems -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">7</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-project-diagram text-primary"></i> Information Systems
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Understand different types of information systems, the System Development Life Cycle (SDLC), and structured analysis and design methodologies like DFD and UML.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Types of Information Systems</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>System Development Life Cycle (SDLC)</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>DFD & UML Diagrams</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 8: Databases -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">8</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-database text-primary"></i> Databases
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Master data modeling, Entity-Relationship (ER) diagrams, database normalization (1NF-3NF), and SQL queries for database management.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Data Modeling & ER Diagrams</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Normalization (1NF, 2NF, 3NF)</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>SQL Queries & Database Operations</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 9: Programming -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">9</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-code text-primary"></i> Programming
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Develop practical programming skills using Python or Pascal, covering control structures, Object-Oriented Programming basics, functions, and file handling.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Control Structures (If, Loops)</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Functions & Procedures</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>OOP Basics (Classes, Objects)</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>File Handling</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 10: Web Development -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">10</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-laptop-code text-primary"></i> Web Development
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Create dynamic websites using HTML, CSS, PHP, and integrate them with MySQL databases for full-stack web development.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>HTML5 & CSS3 Fundamentals</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>PHP Programming</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>MySQL Database Integration</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 11: Internet of Things (IoT) -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">11</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-wifi text-primary"></i> Internet of Things (IoT)
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Discover embedded systems, sensors, actuators, and learn basic programming for IoT platforms like Arduino to create smart devices.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Introduction to IoT & Embedded Systems</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Sensors & Actuators</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Arduino Programming Basics</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 12: E-Business and Future Trends -->
-            <div class="card mb-4 border-0 shadow-sm unit-card transition">
-                <div class="card-body p-4">
-                    <span class="badge bg-primary rounded-pill fs-5 mb-3">12</span>
-                    <h4 class="card-title mb-3">
-                        <i class="fas fa-rocket text-primary"></i> E-Business and Future Trends
-                    </h4>
-                    <p class="card-text text-muted mb-4">
-                        Explore e-commerce models, digital marketing, Artificial Intelligence (AI), blockchain technology, and cloud computing concepts.
-                    </p>
-                    
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>E-Commerce Models & Digital Marketing</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-lock me-2"></i>
-                                    <span>Artificial Intelligence Basics</span>
-                                </div>
-                                <span class="badge bg-secondary">Coming Soon</span>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="
+                `;
+            }
+            
+            document.getElementById('answerExplanation').innerHTML = explanation;
+            document.getElementById('answerExplanation').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
