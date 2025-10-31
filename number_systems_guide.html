@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Systems - A/L ICT Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #000000 0%, #0051ff 100%);
+            min-height: 100vh;
+        }
+        .nav-link {
+            transition: all 0.3s;
+        }
+        .nav-link:hover {
+            transform: translateX(5px);
+        }
+        .code-display {
+            background: #1f2937;
+            color: #10b981;
+            font-family: 'Courier New', monospace;
+        }
+        .conversion-box {
+            transition: all 0.3s;
+        }
+        .conversion-box:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <div class="bg-white rounded-4 shadow-lg overflow-hidden">
+            <!-- Header -->
+            <div class="text-white text-center py-5" style="background: linear-gradient(135deg, #000000 0%, #0051ff 100%);">
+                <h1 class="fw-bold mb-2"><i class="fas fa-binary"></i> Number Systems</h1>
+                <p class="mb-0">Binary, Octal, Decimal & Hexadecimal - A/L ICT Syllabus</p>
+            </div>
+
+            <div class="row g-0">
+                <!-- Sidebar Navigation -->
+                <div class="col-md-3 bg-light p-4">
+                    <nav class="nav nav-pills flex-column sticky-top" style="top: 20px;">
+                        <a class="nav-link active" href="#intro"><i class="fas fa-info-circle me-2"></i>Introduction</a>
+                        <a class="nav-link" href="#decimal"><i class="fas fa-0 me-2"></i>Decimal (Base 10)</a>
+                        <a class="nav-link" href="#binary"><i class="fas fa-1 me-2"></i>Binary (Base 2)</a>
+                        <a class="nav-link" href="#octal"><i class="fas fa-8 me-2"></i>Octal (Base 8)</a>
+                        <a class="nav-link" href="#hex"><i class="fas fa-hashtag me-2"></i>Hexadecimal (Base 16)</a>
+                        <a class="nav-link" href="#conversions"><i class="fas fa-exchange-alt me-2"></i>Conversions</a>
+                        <a class="nav-link" href="#techniques"><i class="fas fa-magic me-2"></i>Easy Techniques</a>
+                        <a class="nav-link" href="#calculator"><i class="fas fa-calculator me-2"></i>Converter</a>
+                        <a class="nav-link" href="#practice"><i class="fas fa-graduation-cap me-2"></i>Practice</a>
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-2"></i>Back to Home</a>
+                    </nav>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-md-9 p-4">
+                    
+                    <!-- Introduction -->
+                    <section id="intro" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-info-circle"></i> Introduction to Number Systems
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-body">
+                                <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-3 p-3 mb-3" style="width: 60px; height: 60px;">
+                                    <i class="fas fa-calculator fs-3"></i>
+                                </div>
+                                <h5 class="card-title">What are Number Systems?</h5>
+                                <p>A <strong>number system</strong> is a way to represent numbers using a specific set of symbols and rules. Computers use different number systems to store and process data efficiently.</p>
+                                
+                                <div class="alert alert-info">
+                                    <strong><i class="fas fa-lightbulb"></i> Why Different Number Systems?</strong><br>
+                                    Computers work with electricity (ON/OFF states), making binary perfect for digital circuits. Hexadecimal provides a compact way to represent binary data, while octal was historically used in computing.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Number Systems Overview -->
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100 conversion-box">
+                                    <div class="card-body text-center">
+                                        <div class="display-4 text-primary mb-3">10</div>
+                                        <h5>Decimal (Base 10)</h5>
+                                        <p class="text-muted mb-3">Digits: 0-9</p>
+                                        <span class="badge bg-primary">Human-readable</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100 conversion-box">
+                                    <div class="card-body text-center">
+                                        <div class="display-4 text-success mb-3">2</div>
+                                        <h5>Binary (Base 2)</h5>
+                                        <p class="text-muted mb-3">Digits: 0, 1</p>
+                                        <span class="badge bg-success">Computer language</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100 conversion-box">
+                                    <div class="card-body text-center">
+                                        <div class="display-4 text-warning mb-3">8</div>
+                                        <h5>Octal (Base 8)</h5>
+                                        <p class="text-muted mb-3">Digits: 0-7</p>
+                                        <span class="badge bg-warning text-dark">Legacy systems</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100 conversion-box">
+                                    <div class="card-body text-center">
+                                        <div class="display-4 text-danger mb-3">16</div>
+                                        <h5>Hexadecimal (Base 16)</h5>
+                                        <p class="text-muted mb-3">Digits: 0-9, A-F</p>
+                                        <span class="badge bg-danger">Compact notation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Decimal System -->
+                    <section id="decimal" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-0"></i> Decimal Number System (Base 10)
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5>The System We Use Daily</h5>
+                                <p>The decimal system uses <strong>10 digits</strong> (0-9) and is based on powers of 10.</p>
+                                
+                                <div class="alert alert-light border-start border-2 border-primary">
+                                    <strong>Example: 2345 in Decimal</strong><br>
+                                    <div class="mt-3">
+                                        <code>2345 = (2 × 10³) + (3 × 10²) + (4 × 10¹) + (5 × 10⁰)</code><br>
+                                        <code>= (2 × 1000) + (3 × 100) + (4 × 10) + (5 × 1)</code><br>
+                                        <code>= 2000 + 300 + 40 + 5</code><br>
+                                        <code>= 2345</code>
+                                    </div>
+                                </div>
+
+                                <h6 class="mt-4">Positional Value</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>10³</th>
+                                                <th>10²</th>
+                                                <th>10¹</th>
+                                                <th>10⁰</th>
+                                            </tr>
+                                            <tr>
+                                                <th>1000</th>
+                                                <th>100</th>
+                                                <th>10</th>
+                                                <th>1</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="table-primary">
+                                                <td>2</td>
+                                                <td>3</td>
+                                                <td>4</td>
+                                                <td>5</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Binary System -->
+                    <section id="binary" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-1"></i> Binary Number System (Base 2)
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-body">
+                                <h5>The Language of Computers</h5>
+                                <p>Binary uses only <strong>2 digits</strong> (0 and 1) representing OFF and ON states in computer circuits.</p>
+                                
+                                <div class="alert alert-success">
+                                    <strong><i class="fas fa-microchip"></i> Why Binary?</strong><br>
+                                    Computers use transistors that can be in two states: ON (1) or OFF (0). This makes binary the natural choice for digital systems.
+                                </div>
+
+                                <h6 class="mt-4">Binary Positional Values</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>2⁷</th>
+                                                <th>2⁶</th>
+                                                <th>2⁵</th>
+                                                <th>2⁴</th>
+                                                <th>2³</th>
+                                                <th>2²</th>
+                                                <th>2¹</th>
+                                                <th>2⁰</th>
+                                            </tr>
+                                            <tr>
+                                                <th>128</th>
+                                                <th>64</th>
+                                                <th>32</th>
+                                                <th>16</th>
+                                                <th>8</th>
+                                                <th>4</th>
+                                                <th>2</th>
+                                                <th>1</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="table-success">
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="alert alert-light border-start border-2 border-success">
+                                    <strong>Example: 10101101₂ to Decimal</strong><br>
+                                    <div class="mt-3">
+                                        <code>= (1×128) + (0×64) + (1×32) + (0×16) + (1×8) + (1×4) + (0×2) + (1×1)</code><br>
+                                        <code>= 128 + 0 + 32 + 0 + 8 + 4 + 0 + 1</code><br>
+                                        <code>= <strong>173₁₀</strong></code>
+                                    </div>
+                                </div>
+
+                                <h6 class="mt-4">Binary Counting (0-15)</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table class="table table-sm table-bordered">
+                                            <thead class="table-light">
+                                                <tr><th>Decimal</th><th>Binary</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>0</td><td>0000</td></tr>
+                                                <tr><td>1</td><td>0001</td></tr>
+                                                <tr><td>2</td><td>0010</td></tr>
+                                                <tr><td>3</td><td>0011</td></tr>
+                                                <tr><td>4</td><td>0100</td></tr>
+                                                <tr><td>5</td><td>0101</td></tr>
+                                                <tr><td>6</td><td>0110</td></tr>
+                                                <tr><td>7</td><td>0111</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-sm table-bordered">
+                                            <thead class="table-light">
+                                                <tr><th>Decimal</th><th>Binary</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>8</td><td>1000</td></tr>
+                                                <tr><td>9</td><td>1001</td></tr>
+                                                <tr><td>10</td><td>1010</td></tr>
+                                                <tr><td>11</td><td>1011</td></tr>
+                                                <tr><td>12</td><td>1100</td></tr>
+                                                <tr><td>13</td><td>1101</td></tr>
+                                                <tr><td>14</td><td>1110</td></tr>
+                                                <tr><td>15</td><td>1111</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Octal System -->
+                    <section id="octal" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-8"></i> Octal Number System (Base 8)
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5>Base 8 System</h5>
+                                <p>Octal uses <strong>8 digits</strong> (0-7) and is based on powers of 8. Often used in computing for representing binary in a more compact form.</p>
+                                
+                                <h6 class="mt-4">Octal Positional Values</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>8³</th>
+                                                <th>8²</th>
+                                                <th>8¹</th>
+                                                <th>8⁰</th>
+                                            </tr>
+                                            <tr>
+                                                <th>512</th>
+                                                <th>64</th>
+                                                <th>8</th>
+                                                <th>1</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="table-warning">
+                                                <td>7</td>
+                                                <td>5</td>
+                                                <td>6</td>
+                                                <td>3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="alert alert-light border-start border-2 border-warning">
+                                    <strong>Example: 7563₈ to Decimal</strong><br>
+                                    <div class="mt-3">
+                                        <code>= (7 × 8³) + (5 × 8²) + (6 × 8¹) + (3 × 8⁰)</code><br>
+                                        <code>= (7 × 512) + (5 × 64) + (6 × 8) + (3 × 1)</code><br>
+                                        <code>= 3584 + 320 + 48 + 3</code><br>
+                                        <code>= <strong>3955₁₀</strong></code>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-info mt-3">
+                                    <strong><i class="fas fa-lightbulb"></i> Octal-Binary Connection:</strong><br>
+                                    Each octal digit represents exactly 3 binary digits (bits):<br>
+                                    <code>7₈ = 111₂</code>, <code>5₈ = 101₂</code>, <code>6₈ = 110₂</code>, <code>3₈ = 011₂</code>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Hexadecimal System -->
+                    <section id="hex" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-hashtag"></i> Hexadecimal Number System (Base 16)
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5>Base 16 System</h5>
+                                <p>Hexadecimal uses <strong>16 symbols</strong>: digits 0-9 and letters A-F (where A=10, B=11, C=12, D=13, E=14, F=15).</p>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <h6>Hex to Decimal Mapping</h6>
+                                        <table class="table table-sm table-bordered">
+                                            <thead class="table-light">
+                                                <tr><th>Hex</th><th>Decimal</th><th>Binary</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>0</td><td>0</td><td>0000</td></tr>
+                                                <tr><td>1</td><td>1</td><td>0001</td></tr>
+                                                <tr><td>2</td><td>2</td><td>0010</td></tr>
+                                                <tr><td>3</td><td>3</td><td>0011</td></tr>
+                                                <tr><td>4</td><td>4</td><td>0100</td></tr>
+                                                <tr><td>5</td><td>5</td><td>0101</td></tr>
+                                                <tr><td>6</td><td>6</td><td>0110</td></tr>
+                                                <tr><td>7</td><td>7</td><td>0111</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>&nbsp;</h6>
+                                        <table class="table table-sm table-bordered">
+                                            <thead class="table-light">
+                                                <tr><th>Hex</th><th>Decimal</th><th>Binary</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>8</td><td>8</td><td>1000</td></tr>
+                                                <tr><td>9</td><td>9</td><td>1001</td></tr>
+                                                <tr class="table-danger"><td>A</td><td>10</td><td>1010</td></tr>
+                                                <tr class="table-danger"><td>B</td><td>11</td><td>1011</td></tr>
+                                                <tr class="table-danger"><td>C</td><td>12</td><td>1100</td></tr>
+                                                <tr class="table-danger"><td>D</td><td>13</td><td>1101</td></tr>
+                                                <tr class="table-danger"><td>E</td><td>14</td><td>1110</td></tr>
+                                                <tr class="table-danger"><td>F</td><td>15</td><td>1111</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <h6>Hex Positional Values</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>16³</th>
+                                                <th>16²</th>
+                                                <th>16¹</th>
+                                                <th>16⁰</th>
+                                            </tr>
+                                            <tr>
+                                                <th>4096</th>
+                                                <th>256</th>
+                                                <th>16</th>
+                                                <th>1</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="table-danger">
+                                                <td>1</td>
+                                                <td>A</td>
+                                                <td>F</td>
+                                                <td>3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="alert alert-light border-start border-2 border-danger">
+                                    <strong>Example: 1AF3₁₆ to Decimal</strong><br>
+                                    <div class="mt-3">
+                                        <code>= (1 × 16³) + (A × 16²) + (F × 16¹) + (3 × 16⁰)</code><br>
+                                        <code>= (1 × 4096) + (10 × 256) + (15 × 16) + (3 × 1)</code><br>
+                                        <code>= 4096 + 2560 + 240 + 3</code><br>
+                                        <code>= <strong>6899₁₀</strong></code>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-success mt-3">
+                                    <strong><i class="fas fa-palette"></i> Real-World Use:</strong><br>
+                                    Hex is widely used in web colors! <code>#FF5733</code> means:<br>
+                                    Red = FF (255), Green = 57 (87), Blue = 33 (51)
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Conversions -->
+                    <section id="conversions" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-exchange-alt"></i> Number System Conversions
+                        </h2>
+
+                        <!-- Decimal to Binary -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0">Decimal to Binary (Division Method)</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Method:</strong> Repeatedly divide by 2 and record remainders (read from bottom to top)</p>
+                                
+                                <div class="alert alert-light border-start border-2 border-success">
+                                    <strong>Example: Convert 45₁₀ to Binary</strong><br>
+                                    <div class="mt-3">
+                                        <pre class="mb-0">
+45 ÷ 2 = 22  remainder <strong>1</strong>  ←
+22 ÷ 2 = 11  remainder <strong>0</strong>  ↑
+11 ÷ 2 = 5   remainder <strong>1</strong>  ↑
+5 ÷ 2  = 2   remainder <strong>1</strong>  ↑
+2 ÷ 2  = 1   remainder <strong>0</strong>  ↑
+1 ÷ 2  = 0   remainder <strong>1</strong>  (Start here)
+
+Answer: <strong>101101₂</strong></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Binary to Decimal -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Binary to Decimal (Expansion Method)</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Method:</strong> Multiply each bit by its positional value and add</p>
+                                
+                                <div class="alert alert-light border-start border-2 border-primary">
+                                    <strong>Example: Convert 101101₂ to Decimal</strong><br>
+                                    <div class="mt-3">
+                                        <code>1×32 + 0×16 + 1×8 + 1×4 + 0×2 + 1×1</code><br>
+                                        <code>= 32 + 0 + 8 + 4 + 0 + 1</code><br>
+                                        <code>= <strong>45₁₀</strong></code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Binary to Hex (Quick Method) -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0">Binary ↔ Hexadecimal (Grouping Method)</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Method:</strong> Group binary digits in sets of 4 (from right to left)</p>
+                                
+                                <div class="alert alert-light border-start border-2 border-danger">
+                                    <strong>Example: Convert 11010111₂ to Hex</strong><br>
+                                    <div class="mt-3">
+                                        <pre class="mb-0">
+Step 1: Group into 4 bits → <strong>1101</strong> <strong>0111</strong>
+Step 2: Convert each group:
+        1101₂ = 13₁₀ = <strong>D₁₆</strong>
+        0111₂ = 7₁₀  = <strong>7₁₆</strong>
+
+Answer: <strong>D7₁₆</strong></pre>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-success">
+                                    <strong>Reverse (Hex to Binary):</strong> Each hex digit → 4 binary digits<br>
+                                    <code>A3₁₆ = 1010 0011₂</code> (A=1010, 3=0011)
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conversion Summary Table -->
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">Quick Conversion Reference</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>From</th>
+                                                <th>To</th>
+                                                <th>Method</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Decimal</td>
+                                                <td>Binary</td>
+                                                <td>Divide by 2, record remainders</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Binary</td>
+                                                <td>Decimal</td>
+                                                <td>Multiply by powers of 2, add</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Binary</td>
+                                                <td>Hex</td>
+                                                <td>Group 4 bits, convert each</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Hex</td>
+                                                <td>Binary</td>
+                                                <td>Each hex digit = 4 bits</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Binary</td>
+                                                <td>Octal</td>
+                                                <td>Group 3 bits, convert each</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Decimal</td>
+                                                <td>Hex/Octal</td>
+                                                <td>Divide by 16/8, record remainders</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Easy Techniques -->
+                    <section id="techniques" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-magic"></i> Easy Techniques & Shortcuts
+                        </h2>
+
+                        <!-- Powers of 2 Memory Trick -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-warning text-dark">
+                                <h5 class="mb-0"><i class="fas fa-brain"></i> Memorize Powers of 2</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Memorizing these makes binary-decimal conversions super fast!</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table class="table table-sm table-bordered">
+                                            <thead class="table-light">
+                                                <tr><th>2ⁿ</th><th>Value</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>2⁰</td><td>1</td></tr>
+                                                <tr><td>2¹</td><td>2</td></tr>
+                                                <tr><td>2²</td><td>4</td></tr>
+                                                <tr><td>2³</td><td>8</td></tr>
+                                                <tr><td>2⁴</td><td>16</td></tr>
+                                                <tr><td>2⁵</td><td>32</td></tr>
+                                                <tr><td>2⁶</td><td>64</td></tr>
+                                                <tr><td>2⁷</td><td>128</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-sm table-bordered">
+                                            <thead class="table-light">
+                                                <tr><th>2ⁿ</th><th>Value</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>2⁸</td><td>256</td></tr>
+                                                <tr><td>2⁹</td><td>512</td></tr>
+                                                <tr><td>2¹⁰</td><td>1024</td></tr>
+                                                <tr><td>2¹¹</td><td>2048</td></tr>
+                                                <tr><td>2¹²</td><td>4096</td></tr>
+                                                <tr><td>2¹³</td><td>8192</td></tr>
+                                                <tr><td>2¹⁴</td><td>16384</td></tr>
+                                                <tr><td>2¹⁵</td><td>32768</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="alert alert-info mt-3">
+                                    <strong><i class="fas fa-lightbulb"></i> Quick Tip:</strong> Each power of 2 is double the previous!<br>
+                                    <code>1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024...</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finger Binary -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0"><i class="fas fa-hand-paper"></i> Finger Binary Counting</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Count from 0 to 31 on one hand using binary!</p>
+                                <div class="alert alert-light border-start border-2 border-success">
+                                    <strong>How it works:</strong><br>
+                                    • Thumb = 1 (2⁰)<br>
+                                    • Index = 2 (2¹)<br>
+                                    • Middle = 4 (2²)<br>
+                                    • Ring = 8 (2³)<br>
+                                    • Pinky = 16 (2⁴)<br><br>
+                                    <strong>Example:</strong> To show 7:<br>
+                                    Thumb (1) + Index (2) + Middle (4) = <strong>7</strong>
+                                </div>
+                                <div class="row text-center mt-3">
+                                    <div class="col">
+                                        <div class="card bg-light">
+                                            <div class="card-body">
+                                                <div class="fs-1">✋</div>
+                                                <small>All fingers up = 31</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card bg-light">
+                                            <div class="card-body">
+                                                <div class="fs-1">👍</div>
+                                                <small>Thumb up = 1</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card bg-light">
+                                            <div class="card-body">
+                                                <div class="fs-1">✊</div>
+                                                <small>Fist = 0</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hex Shortcut -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0"><i class="fas fa-bolt"></i> Hex-Binary Quick Conversion</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Remember: <strong>1 Hex digit = 4 Binary digits</strong></p>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="alert alert-danger">
+                                            <strong>Memorize These:</strong><br>
+                                            <code>8 = 1000</code> (Hex 8 to binary)<br>
+                                            <code>C = 1100</code> (12 in binary)<br>
+                                            <code>F = 1111</code> (All 1s)<br>
+                                            <code>A = 1010</code> (10 in binary)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="alert alert-light border-start border-2 border-danger">
+                                            <strong>Example:</strong><br>
+                                            <code>2F₁₆</code> to binary:<br>
+                                            2 = <strong>0010</strong><br>
+                                            F = <strong>1111</strong><br>
+                                            Answer: <strong>00101111₂</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Check Tricks -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="fas fa-check-double"></i> Quick Check Methods</h5>
+                            </div>
+                            <div class="card-body">
+                                <h6>1. Binary to Decimal (Doubling Method)</h6>
+                                <div class="alert alert-light border-start border-2 border-primary">
+                                    For binary <code>1011₂</code>:<br>
+                                    Start from left: <code>(((1×2)+0)×2+1)×2+1 = 11</code><br>
+                                    <small>This is faster for mental calculation!</small>
+                                </div>
+
+                                <h6 class="mt-3">2. Check if Conversion is Correct</h6>
+                                <div class="alert alert-light border-start border-2 border-success">
+                                    <strong>Binary digit count check:</strong><br>
+                                    • 1-bit number: 0-1 (2 values)<br>
+                                    • 2-bit number: 0-3 (4 values)<br>
+                                    • 3-bit number: 0-7 (8 values)<br>
+                                    • 4-bit number: 0-15 (16 values)<br>
+                                    • 8-bit number: 0-255 (256 values)
+                                </div>
+
+                                <h6 class="mt-3">3. Hex Letters Memory</h6>
+                                <div class="alert alert-warning">
+                                    <strong>A</strong>pple = <strong>10</strong><br>
+                                    <strong>B</strong>anana = <strong>11</strong><br>
+                                    <strong>C</strong>arrot = <strong>12</strong><br>
+                                    <strong>D</strong>ragon = <strong>13</strong><br>
+                                    <strong>E</strong>lephant = <strong>14</strong><br>
+                                    <strong>F</strong>ifteen = <strong>15</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sri Lankan Context -->
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0"><i class="fas fa-graduation-cap"></i> A/L Exam Tips</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <strong><i class="fas fa-check text-success"></i> Always show working:</strong> 
+                                        Write each step clearly for partial marks
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong><i class="fas fa-check text-success"></i> Use subscript notation:</strong> 
+                                        101₂, 25₁₀, 1F₁₆ to avoid confusion
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong><i class="fas fa-check text-success"></i> Verify your answer:</strong> 
+                                        Convert back to check if you get the original number
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong><i class="fas fa-check text-success"></i> Common mistakes:</strong> 
+                                        • Forgetting to read remainders bottom-to-top<br>
+                                        • Using 8 or 9 in octal (only 0-7 allowed)<br>
+                                        • Confusing O (letter) with 0 (zero) in hex
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong><i class="fas fa-clock text-warning"></i> Time management:</strong> 
+                                        Binary↔Hex conversions are fastest, do those first!
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Calculator -->
+                    <section id="calculator" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-calculator"></i> Number System Converter
+                        </h2>
+                        
+                        <div class="card border-0 shadow-sm bg-light">
+                            <div class="card-body p-4">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Enter Number:</label>
+                                        <input type="text" id="inputNumber" class="form-control form-control-lg" placeholder="e.g., 255">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">From Base:</label>
+                                        <select id="fromBase" class="form-select form-select-lg">
+                                            <option value="10" selected>Decimal (10)</option>
+                                            <option value="2">Binary (2)</option>
+                                            <option value="8">Octal (8)</option>
+                                            <option value="16">Hexadecimal (16)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary btn-lg mt-3 w-100" onclick="convertNumber()">
+                                    <i class="fas fa-exchange-alt"></i> Convert to All Bases
+                                </button>
+                                
+                                <div id="conversionResult" class="mt-4" style="display:none;">
+                                    <!-- Results will appear here -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Practice Questions -->
+                    <section id="practice" class="mb-5">
+                        <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
+                            <i class="fas fa-graduation-cap"></i> Practice Questions
+                        </h2>
+
+                        <!-- Question 1 -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Question 1: Basic Conversion</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Convert 156₁₀ to:</strong></p>
+                                <ol type="a">
+                                    <li>Binary</li>
+                                    <li>Octal</li>
+                                    <li>Hexadecimal</li>
+                                </ol>
+                                
+                                <button class="btn btn-sm btn-outline-primary" onclick="toggleAnswer('answer1')">
+                                    Show Answer
+                                </button>
+                                
+                                <div id="answer1" class="alert alert-success mt-3" style="display:none;">
+                                    <strong>Answers:</strong><br>
+                                    a) <strong>10011100₂</strong><br>
+                                    <small>156÷2=78 R0, 78÷2=39 R0, 39÷2=19 R1, 19÷2=9 R1, 9÷2=4 R1, 4÷2=2 R0, 2÷2=1 R0, 1÷2=0 R1</small><br><br>
+                                    
+                                    b) <strong>234₈</strong><br>
+                                    <small>156÷8=19 R4, 19÷8=2 R3, 2÷8=0 R2</small><br><br>
+                                    
+                                    c) <strong>9C₁₆</strong><br>
+                                    <small>156÷16=9 R12, 9÷16=0 R9, 12=C in hex</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0">Question 2: Binary to Hex</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Convert 110110101011₂ to hexadecimal</strong></p>
+                                
+                                <button class="btn btn-sm btn-outline-success" onclick="toggleAnswer('answer2')">
+                                    Show Answer
+                                </button>
+                                
+                                <div id="answer2" class="alert alert-success mt-3" style="display:none;">
+                                    <strong>Answer: DAB₁₆</strong><br><br>
+                                    <strong>Working:</strong><br>
+                                    Group into 4 bits: <code>1101 1010 1011</code><br>
+                                    • 1101₂ = 13₁₀ = D₁₆<br>
+                                    • 1010₂ = 10₁₀ = A₁₆<br>
+                                    • 1011₂ = 11₁₀ = B₁₆
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-warning text-dark">
+                                <h5 class="mb-0">Question 3: Hex to Decimal</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>What is the decimal value of 2F3A₁₆?</strong></p>
+                                
+                                <button class="btn btn-sm btn-outline-warning" onclick="toggleAnswer('answer3')">
+                                    Show Answer
+                                </button>
+                                
+                                <div id="answer3" class="alert alert-success mt-3" style="display:none;">
+                                    <strong>Answer: 12090₁₀</strong><br><br>
+                                    <strong>Working:</strong><br>
+                                    <code>2F3A₁₆ = (2×16³) + (F×16²) + (3×16¹) + (A×16⁰)</code><br>
+                                    <code>= (2×4096) + (15×256) + (3×16) + (10×1)</code><br>
+                                    <code>= 8192 + 3840 + 48 + 10</code><br>
+                                    <code>= 12090₁₀</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0">Question 4: Multiple Choice (A/L Style)</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Which of the following is equivalent to 101010₂?</strong></p>
+                                
+                                <div class="list-group">
+                                    <button class="list-group-item list-group-item-action" onclick="checkMCQ(1, 'A')">
+                                        A) 42₁₀
+                                    </button>
+                                    <button class="list-group-item list-group-item-action" onclick="checkMCQ(1, 'B')">
+                                        B) 52₈
+                                    </button>
+                                    <button class="list-group-item list-group-item-action" onclick="checkMCQ(1, 'C')">
+                                        C) 2A₁₆
+                                    </button>
+                                    <button class="list-group-item list-group-item-action" onclick="checkMCQ(1, 'D')">
+                                        D) All of the above
+                                    </button>
+                                </div>
+                                
+                                <div id="mcq1" class="mt-3" style="display:none;">
+                                    <!-- Answer will appear here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">Question 5: Challenging (A/L Paper)</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>A computer memory address is represented as FA20₁₆. Convert this to:</strong></p>
+                                <ol type="a">
+                                    <li>Binary (required for understanding machine code)</li>
+                                    <li>Decimal (for human understanding)</li>
+                                </ol>
+                                
+                                <button class="btn btn-sm btn-outline-info" onclick="toggleAnswer('answer5')">
+                                    Show Answer
+                                </button>
+                                
+                                <div id="answer5" class="alert alert-success mt-3" style="display:none;">
+                                    <strong>Answers:</strong><br><br>
+                                    a) <strong>1111101000100000₂</strong><br>
+                                    <strong>Working:</strong><br>
+                                    F = 1111, A = 1010, 2 = 0010, 0 = 0000<br>
+                                    Combine: 1111 1010 0010 0000<br><br>
+                                    
+                                    b) <strong>64032₁₀</strong><br>
+                                    <strong>Working:</strong><br>
+                                    <code>= (15×16³) + (10×16²) + (2×16¹) + (0×16⁰)</code><br>
+                                    <code>= (15×4096) + (10×256) + (2×16) + 0</code><br>
+                                    <code>= 61440 + 2560 + 32 + 0</code><br>
+                                    <code>= 64032₁₀</code>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Number Converter
+        function convertNumber() {
+            const input = document.getElementById('inputNumber').value.trim().toUpperCase();
+            const fromBase = parseInt(document.getElementById('fromBase').value);
+            
+            if (!input) {
+                alert('Please enter a number');
+                return;
+            }
+            
+            try {
+                // Convert input to decimal first
+                const decimal = parseInt(input, fromBase);
+                
+                if (isNaN(decimal)) {
+                    alert('Invalid number for selected base');
+                    return;
+                }
+                
+                // Convert to all bases
+                const binary = decimal.toString(2);
+                const octal = decimal.toString(8);
+                const hex = decimal.toString(16).toUpperCase();
+                
+                const result = `
+                    <div class="alert alert-success">
+                        <h5><i class="fas fa-check-circle"></i> Conversion Results</h5>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <h6 class="text-primary"><i class="fas fa-0"></i> Decimal (Base 10)</h6>
+                                    <div class="fs-3 fw-bold">${decimal}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h6 class="text-success"><i class="fas fa-1"></i> Binary (Base 2)</h6>
+                                    <div class="fs-3 fw-bold">${binary}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-warning">
+                                <div class="card-body">
+                                    <h6 class="text-warning"><i class="fas fa-8"></i> Octal (Base 8)</h6>
+                                    <div class="fs-3 fw-bold">${octal}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-danger">
+                                <div class="card-body">
+                                    <h6 class="text-danger"><i class="fas fa-hashtag"></i> Hexadecimal (Base 16)</h6>
+                                    <div class="fs-3 fw-bold">${hex}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('conversionResult').innerHTML = result;
+                document.getElementById('conversionResult').style.display = 'block';
+                
+            } catch (error) {
+                alert('Error converting number. Please check your input.');
+            }
+        }
+
+        // Toggle answer visibility
+        function toggleAnswer(id) {
+            const element = document.getElementById(id);
+            element.style.display = element.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Check MCQ answer
+        function checkMCQ(question, choice) {
+            let result = '';
+            
+            if (question === 1) {
+                if (choice === 'D') {
+                    result = `
+                        <div class="alert alert-success">
+                            <h6><i class="fas fa-check-circle"></i> Correct!</h6>
+                            <p><strong>101010₂ = 42₁₀ = 52₈ = 2A₁₆</strong></p>
+                            <strong>Verification:</strong><br>
+                            • Binary to Decimal: (1×32)+(0×16)+(1×8)+(0×4)+(1×2)+(0×1) = 42<br>
+                            • Decimal to Octal: 42÷8=5 R2 → 52₈<br>
+                            • Decimal to Hex: 42÷16=2 R10 → 2A₁₆ (10=A)
+                        </div>
+                    `;
+                } else {
+                    result = `
+                        <div class="alert alert-danger">
+                            <h6><i class="fas fa-times-circle"></i> Incorrect</h6>
+                            <p>Hint: Convert 101010₂ to decimal first, then check all options!</p>
+                        </div>
+                    `;
+                }
+            }
+            
+            document.getElementById('mcq' + question).innerHTML = result;
+            document.getElementById('mcq' + question).style.display = 'block';
+        }
+
+        // Allow Enter key for conversion
+        document.getElementById('inputNumber').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                convertNumber();
+            }
+        });
+    </script>
+</body>
+</html>
