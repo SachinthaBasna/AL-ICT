@@ -8,8 +8,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            box-sizing: border-box;
+            overflow-y: visible;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
         }
         .nav-link:hover {
             transform: translateX(5px);
@@ -25,15 +29,15 @@
     <div class="container py-4">
         <div class="bg-white rounded-4 shadow-lg overflow-hidden">
             <!-- Header -->
-            <div class="text-white text-center py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="text-white text-center py-5" style="background: linear-gradient(135deg, #000000 0%, #0051ff 100%);">
                 <h1 class="fw-bold mb-2"><i class="fas fa-network-wired"></i> IP Addressing & Networking</h1>
                 <p class="mb-0">Complete Guide for A/L ICT Syllabus - Sri Lanka</p>
             </div>
 
             <div class="row g-0">
                 <!-- Sidebar Navigation -->
-                <div class="col-md-3 bg-light p-4">
-                    <nav class="nav nav-pills flex-column sticky-top" style="top: 20px;">
+                <div class="col-md-3 bg-light p-4 position-static" style="height: 100vh; top: 0; left: 0; overflow-y: auto;">
+                <nav class="nav nav-pills flex-column sticky-top" style="top: 20px;">
                         <a class="nav-link active" href="#basics"><i class="fas fa-info-circle me-2"></i>IP Basics</a>
                         <a class="nav-link" href="#classes"><i class="fas fa-layer-group me-2"></i>Network Classes</a>
                         <a class="nav-link" href="#subnet"><i class="fas fa-sitemap me-2"></i>Subnet Mask</a>
@@ -47,7 +51,7 @@
                 </div>
 
                 <!-- Main Content -->
-                <div class="col-md-9 p-4">
+                <div class="col-md-9 p-4 overflow-y-scroll" style="height: 100vh;">
                     
                     <!-- IP Basics -->
                     <section id="basics" class="mb-5">
@@ -63,7 +67,7 @@
                                 <h5 class="card-title">What is an IP Address?</h5>
                                 <p>An <strong>IP (Internet Protocol) address</strong> is a unique 32-bit identifier assigned to each device on a network. Think of it as a postal address for your computer.</p>
                                 
-                                <div class="alert alert-light border-start border-4 border-primary">
+                                <div class="alert alert-light">
                                     <strong>Example:</strong> <code>192.168.1.10</code>
                                 </div>
                                 
@@ -97,7 +101,7 @@
                                         <p><strong>Default Mask:</strong> 255.0.0.0 (/8)</p>
                                         <p><strong>Networks:</strong> 126</p>
                                         <p><strong>Hosts per network:</strong> 16,777,214</p>
-                                        <div class="alert alert-light border-start border-4 border-primary">
+                                        <div class="alert alert-light">
                                             <code>10.20.30.40</code>
                                         </div>
                                         <span class="badge bg-primary">Large Organizations</span>
@@ -115,7 +119,7 @@
                                         <p><strong>Default Mask:</strong> 255.255.0.0 (/16)</p>
                                         <p><strong>Networks:</strong> 16,384</p>
                                         <p><strong>Hosts per network:</strong> 65,534</p>
-                                        <div class="alert alert-light border-start border-4 border-success">
+                                        <div class="alert alert-light">
                                             <code>172.16.50.100</code>
                                         </div>
                                         <span class="badge bg-success">Medium Organizations</span>
@@ -133,7 +137,7 @@
                                         <p><strong>Default Mask:</strong> 255.255.255.0 (/24)</p>
                                         <p><strong>Networks:</strong> 2,097,152</p>
                                         <p><strong>Hosts per network:</strong> 254</p>
-                                        <div class="alert alert-light border-start border-4 border-warning">
+                                        <div class="alert alert-light">
                                             <code>192.168.10.25</code>
                                         </div>
                                         <span class="badge bg-warning text-dark">Small Networks</span>
@@ -188,12 +192,12 @@
                                     </div>
                                 </div>
                                 
-                                <div class="alert alert-warning border-start border-4 border-warning mt-3">
+                                <div class="alert alert-warning border-start border-2 border-warning mt-3">
                                     <strong><i class="fas fa-calculator"></i> How to Find Network ID:</strong><br>
                                     Perform AND operation between IP address and Subnet Mask
                                 </div>
                                 
-                                <div class="alert alert-light border-start border-4 border-primary">
+                                <div class="alert alert-light border-start border-2 border-primary">
                                     <strong>Example:</strong><br>
                                     IP: 192.168.50.45 (11000000.10101000.00110010.00101101)<br>
                                     Mask: 255.255.255.0 (11111111.11111111.11111111.00000000)<br>
@@ -217,7 +221,7 @@
                                     </div>
                                     <div class="card-body">
                                         <p><strong>Definition:</strong> Identifies the entire network (all host bits = 0)</p>
-                                        <div class="alert alert-light border-start border-4 border-primary">
+                                        <div class="alert alert-light border-start border-2 border-primary">
                                             IP: 172.16.50.100/16<br>
                                             Network ID: <strong>172.16.0.0</strong>
                                         </div>
@@ -233,7 +237,7 @@
                                     </div>
                                     <div class="card-body">
                                         <p><strong>Definition:</strong> Identifies a specific device within the network</p>
-                                        <div class="alert alert-light border-start border-4 border-success">
+                                        <div class="alert alert-light border-start border-2 border-success">
                                             IP: 192.168.10.25/24<br>
                                             Host ID: <strong>25</strong>
                                         </div>
@@ -257,14 +261,14 @@
                                 
                                 <div class="row mt-4">
                                     <div class="col-md-6">
-                                        <div class="alert alert-light border-start border-4 border-primary">
+                                        <div class="alert alert-light border-start border-2 border-primary">
                                             <strong>Example 1:</strong><br>
                                             Network: 192.168.10.0/24<br>
                                             Broadcast: <strong>192.168.10.255</strong>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="alert alert-light border-start border-4 border-primary">
+                                        <div class="alert alert-light border-start border-2 border-primary">
                                             <strong>Example 2:</strong><br>
                                             Network: 172.16.0.0/16<br>
                                             Broadcast: <strong>172.16.255.255</strong>
@@ -291,7 +295,7 @@
                                 <h5>What is Subnetting?</h5>
                                 <p>Dividing a large network into smaller sub-networks for better management and security.</p>
                                 
-                                <div class="alert alert-warning border-start border-4 border-warning">
+                                <div class="alert alert-warning border-start border-2 border-warning">
                                     <strong>Formulas:</strong><br>
                                     • Number of Subnets = 2ⁿ (n = borrowed bits)<br>
                                     • Hosts per Subnet = 2ʰ - 2 (h = host bits)<br>
