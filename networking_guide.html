@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,15 @@
             box-sizing: border-box;
             overflow-y: visible;
         }
+
         .nav-link {
             transition: all 0.3s ease;
         }
+
         .nav-link:hover {
             transform: translateX(5px);
         }
+
         .binary-display {
             background: #1f2937;
             color: #10b981;
@@ -25,19 +29,22 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container py-4">
         <div class="bg-white rounded-4 shadow-lg overflow-hidden">
             <!-- Header -->
-            <div class="text-white text-center py-5" style="background: linear-gradient(135deg, #000000 0%, #0051ff 100%);">
+            <div class="text-white text-center py-5"
+                style="background: linear-gradient(135deg, #000000 0%, #0051ff 100%);">
                 <h1 class="fw-bold mb-2"><i class="fas fa-network-wired"></i> IP Addressing & Networking</h1>
                 <p class="mb-0">Complete Guide for A/L ICT Syllabus - Sri Lanka</p>
             </div>
 
             <div class="row g-0">
                 <!-- Sidebar Navigation -->
-                <div class="col-md-3 bg-light p-4 position-static" style="height: 100vh; top: 0; left: 0; overflow-y: auto;">
-                <nav class="nav nav-pills flex-column sticky-top" style="top: 20px;">
+                <div class="col-md-3 bg-light p-4"
+                    style="top: 0; left: 0;">
+                    <nav class="nav nav-pills flex-column sticky-top" style="top: 20px;">
                         <a class="nav-link active" href="#basics"><i class="fas fa-info-circle me-2"></i>IP Basics</a>
                         <a class="nav-link" href="#classes"><i class="fas fa-layer-group me-2"></i>Network Classes</a>
                         <a class="nav-link" href="#subnet"><i class="fas fa-sitemap me-2"></i>Subnet Mask</a>
@@ -52,29 +59,32 @@
 
                 <!-- Main Content -->
                 <div class="col-md-9 p-4 overflow-y-scroll" style="height: 100vh;">
-                    
+
                     <!-- IP Basics -->
                     <section id="basics" class="mb-5">
                         <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
                             <i class="fas fa-info-circle"></i> IP Address Basics
                         </h2>
-                        
+
                         <div class="card border-0 shadow-sm">
                             <div class="card-body">
-                                <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-3 p-3 mb-3" style="width: 60px; height: 60px;">
+                                <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-3 p-3 mb-3"
+                                    style="width: 60px; height: 60px;">
                                     <i class="fas fa-laptop fs-3"></i>
                                 </div>
                                 <h5 class="card-title">What is an IP Address?</h5>
-                                <p>An <strong>IP (Internet Protocol) address</strong> is a unique 32-bit identifier assigned to each device on a network. Think of it as a postal address for your computer.</p>
-                                
+                                <p>An <strong>IP (Internet Protocol) address</strong> is a unique 32-bit identifier
+                                    assigned to each device on a network. Think of it as a postal address for your
+                                    computer.</p>
+
                                 <div class="alert alert-light">
                                     <strong>Example:</strong> <code>192.168.1.10</code>
                                 </div>
-                                
+
                                 <div class="binary-display p-3 rounded mb-3">
                                     Binary: 11000000.10101000.00000001.00001010
                                 </div>
-                                
+
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">Consists of <strong>4 octets</strong> (8 bits each)</li>
                                     <li class="list-group-item">Each octet ranges from <strong>0 to 255</strong></li>
@@ -89,11 +99,12 @@
                         <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
                             <i class="fas fa-layer-group"></i> Network Classes
                         </h2>
-                        
+
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="card border-0 shadow-sm h-100">
-                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                    <div class="card-header text-white"
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                                         Class A
                                     </div>
                                     <div class="card-body">
@@ -108,10 +119,11 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="card border-0 shadow-sm h-100">
-                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                    <div class="card-header text-white"
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                                         Class B
                                     </div>
                                     <div class="card-body">
@@ -126,10 +138,11 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="card border-0 shadow-sm h-100">
-                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                    <div class="card-header text-white"
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                                         Class C
                                     </div>
                                     <div class="card-body">
@@ -144,10 +157,11 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="card border-0 shadow-sm h-100">
-                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                    <div class="card-header text-white"
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                                         Class D & E
                                     </div>
                                     <div class="card-body">
@@ -167,18 +181,26 @@
                         <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
                             <i class="fas fa-sitemap"></i> Subnet Mask
                         </h2>
-                        
+
                         <div class="card border-0 shadow-sm">
                             <div class="card-body">
                                 <h5>What is a Subnet Mask?</h5>
-                                <p>A subnet mask separates the <mark>network portion</mark> from the <mark>host portion</mark> of an IP address.</p>
-                                
+                                <p>A subnet mask separates the <mark>network portion</mark> from the <mark>host (bits
+                                        used to identify devices) portion</mark> of an IP address. <br /> ✅ What is a
+                                    Subnet? A subnet (sub-network: a smaller part of a bigger network) is used to divide
+                                    a large network into organized, manageable sections.</p>
+                                <p><b>Why divide a network?</b></p>
+                                <ul>
+                                    <li>Reduce network congestion (less devices shouting in the same area)</li>
+                                    <li>Improve security (separate groups of devices)</li>
+                                    <li>Efficient IP address management (allocate addresses based on need)</li>
+                                </ul>
                                 <div class="row mt-4">
                                     <div class="col-md-6">
                                         <h6>Binary Representation:</h6>
                                         <div class="binary-display p-3 rounded">
                                             255 = 11111111 (Network bits)<br>
-                                            0   = 00000000 (Host bits)
+                                            0 = 00000000 (Host bits)
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -191,12 +213,12 @@
                                         </ul>
                                     </div>
                                 </div>
-                                
+
                                 <div class="alert alert-warning border-start border-2 border-warning mt-3">
                                     <strong><i class="fas fa-calculator"></i> How to Find Network ID:</strong><br>
                                     Perform AND operation between IP address and Subnet Mask
                                 </div>
-                                
+
                                 <div class="alert alert-light border-start border-2 border-primary">
                                     <strong>Example:</strong><br>
                                     IP: 192.168.50.45 (11000000.10101000.00110010.00101101)<br>
@@ -212,36 +234,42 @@
                         <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
                             <i class="fas fa-fingerprint"></i> Network ID & Host ID
                         </h2>
-                        
+
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="card border-0 shadow-sm h-100">
-                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                    <div class="card-header text-white"
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                                         Network ID
                                     </div>
                                     <div class="card-body">
-                                        <p><strong>Definition:</strong> Identifies the entire network (all host bits = 0)</p>
+                                        <p><strong>Definition:</strong> Identifies the entire network (all host bits =
+                                            0)</p>
                                         <div class="alert alert-light border-start border-2 border-primary">
                                             IP: 172.16.50.100/16<br>
                                             Network ID: <strong>172.16.0.0</strong>
                                         </div>
-                                        <p class="mb-0"><i class="fas fa-exclamation-triangle text-warning"></i> Cannot be assigned to devices</p>
+                                        <p class="mb-0"><i class="fas fa-exclamation-triangle text-warning"></i> Cannot
+                                            be assigned to devices</p>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="card border-0 shadow-sm h-100">
-                                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                    <div class="card-header text-white"
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                                         Host ID
                                     </div>
                                     <div class="card-body">
-                                        <p><strong>Definition:</strong> Identifies a specific device within the network</p>
+                                        <p><strong>Definition:</strong> Identifies a specific device within the network
+                                        </p>
                                         <div class="alert alert-light border-start border-2 border-success">
                                             IP: 192.168.10.25/24<br>
                                             Host ID: <strong>25</strong>
                                         </div>
-                                        <p class="mb-0"><i class="fas fa-check-circle text-success"></i> Must be unique within network</p>
+                                        <p class="mb-0"><i class="fas fa-check-circle text-success"></i> Must be unique
+                                            within network</p>
                                     </div>
                                 </div>
                             </div>
@@ -253,12 +281,13 @@
                         <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
                             <i class="fas fa-broadcast-tower"></i> Broadcast Address
                         </h2>
-                        
+
                         <div class="card border-0 shadow-sm">
                             <div class="card-body">
                                 <h5>Direct Broadcast Address</h5>
-                                <p>Sends data to <strong>ALL devices</strong> on a specific network (all host bits = 1)</p>
-                                
+                                <p>Sends data to <strong>ALL devices</strong> on a specific network (all host bits = 1).
+                                    the last IP in a subnet.</p>
+
                                 <div class="row mt-4">
                                     <div class="col-md-6">
                                         <div class="alert alert-light border-start border-2 border-primary">
@@ -275,10 +304,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="alert alert-info">
                                     <strong><i class="fas fa-lightbulb"></i> Sri Lankan Example:</strong><br>
-                                    A university lab with network 10.10.5.0/24 has broadcast address <strong>10.10.5.255</strong> to reach all 254 computers simultaneously.
+                                    A university lab with network 10.10.5.0/24 has broadcast address
+                                    <strong>10.10.5.255</strong> to reach all 254 computers simultaneously.
                                 </div>
                             </div>
                         </div>
@@ -289,23 +319,26 @@
                         <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
                             <i class="fas fa-project-diagram"></i> Subnetting
                         </h2>
-                        
+
                         <div class="card border-0 shadow-sm">
                             <div class="card-body">
                                 <h5>What is Subnetting?</h5>
-                                <p>Dividing a large network into smaller sub-networks for better management and security.</p>
-                                
+                                <p>Subnetting is the process of dividing a large network into smaller sub-networks for better management and security.</p>
+                                    security.</p>
+
                                 <div class="alert alert-warning border-start border-2 border-warning">
                                     <strong>Formulas:</strong><br>
                                     • Number of Subnets = 2ⁿ (n = borrowed bits)<br>
                                     • Hosts per Subnet = 2ʰ - 2 (h = host bits)<br>
                                     • Block Size = 256 - subnet mask value
                                 </div>
-                                
+
                                 <h6 class="mt-4">Example: Subnetting 192.168.10.0/24</h6>
                                 <p>Need 4 subnets → Borrow 2 bits (2² = 4)</p>
                                 <p>New Mask: 255.255.255.192 or /26</p>
-                                
+
+                                <p>Why: routers use mask to decide if an IP is local or should be forwarded to another network.</p>
+
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-striped mt-3">
                                         <thead class="table-light">
@@ -358,23 +391,25 @@
                         <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
                             <i class="fas fa-calculator"></i> IP Subnet Calculator
                         </h2>
-                        
+
                         <div class="card border-0 shadow-sm bg-light">
                             <div class="card-body p-4">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label class="form-label fw-bold">IP Address:</label>
-                                        <input type="text" id="ipInput" class="form-control form-control-lg" placeholder="e.g., 192.168.1.10" value="192.248.16.91">
+                                        <input type="text" id="ipInput" class="form-control form-control-lg"
+                                            placeholder="e.g., 192.168.1.10" value="192.248.16.91">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label fw-bold">Subnet Mask:</label>
-                                        <input type="text" id="maskInput" class="form-control form-control-lg" placeholder="e.g., 255.255.255.0" value="255.255.255.128">
+                                        <input type="text" id="maskInput" class="form-control form-control-lg"
+                                            placeholder="e.g., 255.255.255.0" value="255.255.255.128">
                                     </div>
                                 </div>
                                 <button class="btn btn-primary btn-lg mt-3" onclick="calculateSubnet()">
                                     <i class="fas fa-calculator"></i> Calculate
                                 </button>
-                                
+
                                 <div id="calculatorResult" class="mt-4" style="display:none;">
                                     <!-- Results will appear here -->
                                 </div>
@@ -387,14 +422,17 @@
                         <h2 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">
                             <i class="fas fa-graduation-cap"></i> A/L Exam Question
                         </h2>
-                        
+
                         <div class="card border-0 shadow-sm">
                             <div class="card-header bg-danger text-white">
                                 <h5 class="mb-0">Practice Question</h5>
                             </div>
                             <div class="card-body">
-                                <p><strong>Question:</strong> A computer in specific network has <strong>192.248.16.91</strong> as an IP address and subnet mask is <strong>255.255.255.128</strong>. Choose the wrong IP address that can't be used on a computer in this network.</p>
-                                
+                                <p><strong>Question:</strong> A computer in specific network has
+                                    <strong>192.248.16.91</strong> as an IP address and subnet mask is
+                                    <strong>255.255.255.128</strong>. Choose the wrong IP address that can't be used on
+                                    a computer in this network.</p>
+
                                 <div class="list-group mt-3">
                                     <button class="list-group-item list-group-item-action" onclick="checkAnswer(1)">
                                         1. 192.248.16.161
@@ -412,7 +450,7 @@
                                         5. 192.248.16.120
                                     </button>
                                 </div>
-                                
+
                                 <div id="answerExplanation" class="mt-4" style="display:none;">
                                     <!-- Explanation will appear here -->
                                 </div>
@@ -420,9 +458,128 @@
                         </div>
                     </section>
 
+                    <!-- Terms Breakdown -->
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h2 class="mb-1">Terms Breakdown</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-borderless align-middle text-light">
+                            <thead>
+                                <tr class="small-muted text-uppercase">
+                                    <th>Term</th>
+                                    <th class="w-50">Explanation (short)</th>
+                                    <th>Example (/25 on 192.168.1.0)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="term">IP Address</td>
+                                    <td>Identifier for a device on a network (unique address assigned to a host)</td>
+                                    <td><code>192.168.1.5</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="term">Subnet Mask</td>
+                                    <td>Defines which part of the IP is network vs host (mask separating network bits
+                                        from host bits)</td>
+                                    <td><code>255.255.255.128</code> (<code>/25</code>)</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="term">Network Bits</td>
+                                    <td>Part of IP identifying the network (fixed bits that name the subnet)</td>
+                                    <td>First <strong>25</strong> bits in <code>/25</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="term">Host Bits</td>
+                                    <td>Part of IP identifying the device (bits that identify hosts within the subnet)
+                                    </td>
+                                    <td>Last <strong>7</strong> bits in <code>/25</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="term">Subnet</td>
+                                    <td>Smaller network inside a bigger network (a divided portion with its own ID and
+                                        broadcast)</td>
+                                    <td><code>192.168.1.0/25</code> and <code>192.168.1.128/25</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="term">Network ID</td>
+                                    <td>First IP of the subnet (identifies the subnet itself; not assigned to a device)
+                                    </td>
+                                    <td><code>192.168.1.0</code> or <code>192.168.1.128</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="term">Broadcast Address</td>
+                                    <td>Last IP of the subnet (special address to send to all devices in that subnet)
+                                    </td>
+                                    <td><code>192.168.1.127</code> or <code>192.168.1.255</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="term">Usable Host Range</td>
+                                    <td>IPs you can assign to devices (excludes network ID & broadcast)</td>
+                                    <td><code>192.168.1.1 → 192.168.1.126</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="term">Total Addresses</td>
+                                    <td>All IPs in the subnet (includes network, hosts, broadcast)</td>
+                                    <td><code>128</code> (in <code>/25</code>)</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="term">Usable Addresses</td>
+                                    <td>IPs usable for devices (total minus network and broadcast)</td>
+                                    <td><code>126</code> (in <code>/25</code>)</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="term">CIDR Notation</td>
+                                    <td>Shortcut to write mask (slash + number of network bits)</td>
+                                    <td><code>/25</code></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-3 small-muted">Quick formula: <code>Total addresses = 2^(host bits)</code> →
+                        <code>2^7 = 128</code>. Usable = Total - 2 (network + broadcast).</div>
+
+                    <div class="mt-4 d-flex gap-3">
+                        <button class="btn btn-outline-light" id="btnShowBits">Show Mask Bits</button>
+                        <button class="btn btn-outline-light" id="btnToggleTheme">Toggle Contrast</button>
+                    </div>
+
+                    <div id="bitsPanel" class="mt-3" style="display:none">
+                        <pre><strong>/25 mask bits:</strong> 11111111.11111111.11111111.10000000
+            <strong>Network bits:</strong> 25  |  <strong>Host bits:</strong> 7</pre>
+                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+    </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
@@ -445,18 +602,18 @@
         function calculateSubnet() {
             const ip = document.getElementById('ipInput').value;
             const mask = document.getElementById('maskInput').value;
-            
+
             const ipParts = ip.split('.').map(Number);
             const maskParts = mask.split('.').map(Number);
-            
+
             if (ipParts.length !== 4 || maskParts.length !== 4 || ipParts.some(isNaN) || maskParts.some(isNaN)) {
                 alert('Please enter valid IP address and subnet mask');
                 return;
             }
-            
+
             const networkId = ipParts.map((part, i) => part & maskParts[i]);
             const broadcast = maskParts.map((part, i) => networkId[i] | (255 - part));
-            
+
             const hostBits = maskParts.reduce((acc, part) => {
                 let bits = 0;
                 let num = 255 - part;
@@ -466,18 +623,18 @@
                 }
                 return acc + bits;
             }, 0);
-            
+
             const totalHosts = Math.pow(2, hostBits);
             const usableHosts = totalHosts - 2;
-            
+
             const firstHost = [...networkId];
             firstHost[3]++;
-            
+
             const lastHost = [...broadcast];
             lastHost[3]--;
-            
+
             const cidr = 32 - hostBits;
-            
+
             const result = `
                 <div class="alert alert-success">
                     <h5><i class="fas fa-check-circle"></i> Calculation Results</h5>
@@ -493,7 +650,7 @@
                     <tr><td><strong>Usable Hosts:</strong></td><td><strong class="text-success">${usableHosts}</strong></td></tr>
                 </table>
             `;
-            
+
             document.getElementById('calculatorResult').innerHTML = result;
             document.getElementById('calculatorResult').style.display = 'block';
         }
@@ -501,7 +658,7 @@
         // Check answer
         function checkAnswer(choice) {
             let explanation = '';
-            
+
             if (choice === 1) {
                 explanation = `
                     <div class="alert alert-success">
@@ -547,10 +704,11 @@
                     </div>
                 `;
             }
-            
+
             document.getElementById('answerExplanation').innerHTML = explanation;
             document.getElementById('answerExplanation').style.display = 'block';
         }
     </script>
 </body>
+
 </html>
