@@ -7,815 +7,596 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --accent: #f093fb;
-            --dark: #1a202c;
-            --light: #f7fafc;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
-
-        /* Hero Section */
-        .hero-section {
-            padding: 60px 0;
-            color: white;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: fadeInDown 1s ease;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .stat-card {
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 20px 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.3);
-            min-width: 150px;
-            transition: transform 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Main Content */
-        .main-content {
-            background: white;
-            border-radius: 30px 30px 0 0;
-            margin-top: 40px;
-            padding: 60px 0;
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            color: #718096;
-            font-size: 1.1rem;
-            margin-bottom: 50px;
-        }
-
-        /* Unit Cards */
-        .unit-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .unit-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-        }
-
-        .unit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
-            border-color: var(--primary);
-        }
-
-        .unit-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 12px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            line-height: 50px;
-            text-align: center;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .unit-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-
-        .unit-description {
-            color: #718096;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .lesson-list {
-            list-style: none;
-            padding: 0;
-        }
-
         .lesson-item {
-            background: var(--light);
-            padding: 15px 20px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.3s;
-            cursor: pointer;
+            transition: all 0.3s ease;
         }
-
-        .lesson-item:hover {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            transform: translateX(10px);
+        .lesson-item:hover:not(.locked) {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-
-        .lesson-item.active {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .lesson-item.active .lesson-icon,
-        .lesson-item.active .lesson-arrow {
-            color: white;
-        }
-
         .lesson-item.locked {
-            opacity: 0.5;
+            opacity: 0.6;
             cursor: not-allowed;
         }
-
-        .lesson-item.locked:hover {
-            transform: none;
-        }
-
-        .lesson-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .lesson-icon {
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .lesson-name {
-            font-weight: 500;
-        }
-
-        .lesson-arrow {
-            color: var(--primary);
-            transition: transform 0.3s;
-        }
-
-        .lesson-item:hover .lesson-arrow {
-            transform: translateX(5px);
-        }
-
-        .badge-custom {
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        /* Quick Links Section */
-        .quick-links {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 0;
-            margin-top: 60px;
-        }
-
-        .quick-link-card {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s;
-            height: 100%;
-        }
-
-        .quick-link-card:hover {
-            background: rgba(255,255,255,0.25);
-            transform: translateY(-10px);
-        }
-
-        .quick-link-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .quick-link-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .quick-link-desc {
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-
-        /* Progress Section */
-        .progress-section {
-            background: var(--light);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 40px 0;
-        }
-
-        .progress-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .progress {
-            height: 30px;
-            border-radius: 15px;
-            background: white;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .progress-bar {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 15px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .unit-card {
-                padding: 20px;
-            }
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 40px 0 20px;
-            text-align: center;
-        }
-
-        .footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
+        .unit-card:hover {
+            transform: scale(5px);
         }
     </style>
 </head>
 <body>
     
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="text-white text-center py-5">
         <div class="container">
-            <div class="hero-title">
+            <h1 class="display-3 fw-bold mb-3">
                 <i class="fas fa-graduation-cap"></i> A/L ICT Learning Hub
-            </div>
-            <div class="hero-subtitle">
-                Complete Guide for G.C.E Advanced Level ICT - Sri Lanka
-            </div>
-            <div class="hero-stats">
-                <div class="stat-card">
-                    <div class="stat-number">12</div>
-                    <div class="stat-label">Units</div>
+            </h1>
+            <p class="lead mb-4">Complete Guide for G.C.E Advanced Level ICT - Sri Lanka</p>
+            
+            <div class="row justify-content-center g-4 mt-4">
+                <div class="col-md-3">
+                    <div class="card bg-white bg-opacity-25 border-0">
+                        <div class="card-body text-white">
+                            <h2 class="display-4 fw-bold">12</h2>
+                            <p class="mb-0">Units</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Lessons</div>
+                <div class="col-md-3">
+                    <div class="card bg-white bg-opacity-25 border-0">
+                        <div class="card-body  text-white">
+                            <h2 class="display-4 fw-bold">50+</h2>
+                            <p class="mb-0">Lessons</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">100+</div>
-                    <div class="stat-label">Examples</div>
+                <div class="col-md-3">
+                    <div class="card bg-white bg-opacity-25 border-0">
+                        <div class="card-body  text-white">
+                            <h2 class="display-4 fw-bold">100+</h2>
+                            <p class="mb-0">Examples</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <div class="container">
-            
-            <!-- Progress Section -->
-            <div class="progress-section">
-                <div class="progress-title">
-                    <i class="fas fa-chart-line"></i> Your Learning Progress
-                </div>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 3%;">
-                        3% Complete
-                    </div>
-                </div>
-                <div class="mt-3 text-muted">
-                    <small><i class="fas fa-info-circle"></i> Start learning to track your progress!</small>
-                </div>
-            </div>
+    <div class="bg-white rounded-top-5 shadow-lg">
+        <div class="container py-5">
 
             <!-- Introduction -->
             <div class="text-center mb-5">
-                <h2 class="section-title">Course Units</h2>
-                <p class="section-subtitle">Master A/L ICT with comprehensive lessons, examples, and practice questions</p>
+                <h2 class="display-5 fw-bold mb-2">Course Units</h2>
+                <p class="text-muted lead">Master A/L ICT with comprehensive lessons, examples, and practice questions</p>
             </div>
 
             <!-- Unit 1: Basic Concepts of ICT -->
-            <div class="unit-card">
-                <div class="unit-number">1</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-lightbulb"></i> Basic Concepts of ICT
-                </h3>
-                <p class="unit-description">
-                    Understand the fundamentals of information and data, the data processing life cycle, and explore the societal impact and ethical considerations of ICT in modern life.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Information vs Data</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Data Processing Life Cycle</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Societal Impact & Ethics of ICT</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                </ul>
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">1</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-lightbulb text-primary"></i> Basic Concepts of ICT
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Understand the fundamentals of information and data, the data processing life cycle, and explore the societal impact and ethical considerations of ICT in modern life.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Information vs Data</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Data Processing Life Cycle</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Societal Impact & Ethics of ICT</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 2: Evolution of Computers -->
-            <div class="unit-card">
-                <div class="unit-number">2</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-history"></i> Evolution of Computers
-                </h3>
-                <p class="unit-description">
-                    Journey through the different generations of computers from vacuum tubes to modern processors, and understand the advancements in computer hardware technology.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Generations of Computers (1st to 5th)</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Hardware Advancements</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                </ul>
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">2</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-history text-primary"></i> Evolution of Computers
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Journey through the different generations of computers from vacuum tubes to modern processors, and understand the advancements in computer hardware technology.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Generations of Computers (1st to 5th)</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Hardware Advancements</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 3: Data Representation -->
-            <div class="unit-card">
-                <div class="unit-number">3</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-binary"></i> Data Representation
-                </h3>
-                <p class="unit-description">
-                    Master number systems including binary and hexadecimal, learn data encoding methods, and understand 2's complement arithmetic for negative numbers.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Number Systems (Binary, Hex, Decimal)</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Data Encoding (ASCII, Unicode)</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">2's Complement Arithmetic</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                </ul>
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">3</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-binary text-primary"></i> Data Representation
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Master number systems including binary and hexadecimal, learn data encoding methods, and understand 2's complement arithmetic for negative numbers.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Number Systems (Binary, Hex, Decimal)</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Data Encoding (ASCII, Unicode)</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>2's Complement Arithmetic</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 4: Digital Circuits -->
-            <div class="unit-card">
-                <div class="unit-number">4</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-microchip"></i> Digital Circuits
-                </h3>
-                <p class="unit-description">
-                    Learn about logic gates (AND, OR, NOT, NAND, NOR, XOR), flip-flops for memory storage, and adder circuits for arithmetic operations.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Logic Gates & Truth Tables</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Flip-Flops (SR, D, JK)</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Adders (Half & Full Adder)</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                </ul>
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">4</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-microchip text-primary"></i> Digital Circuits
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Learn about logic gates (AND, OR, NOT, NAND, NOR, XOR), flip-flops for memory storage, and adder circuits for arithmetic operations.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Logic Gates & Truth Tables</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Flip-Flops (SR, D, JK)</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Adders (Half & Full Adder)</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 5: Operating Systems -->
-            <div class="unit-card">
-                <div class="unit-number">5</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-desktop"></i> Operating Systems
-                </h3>
-                <p class="unit-description">
-                    Explore the functions of operating systems, including process management, memory management, file systems, and their role in computer operations.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Functions of Operating Systems</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Process Management</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Memory & File Management</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                </ul>
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">5</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-desktop text-primary"></i> Operating Systems
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Explore the functions of operating systems, including process management, memory management, file systems, and their role in computer operations.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Functions of Operating Systems</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Process Management</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Memory & File Management</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 6: Data Communication and Networking -->
-            <div class="unit-card">
-                <div class="unit-number">6</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-network-wired"></i> Data Communication and Networking
-                </h3>
-                <p class="unit-description">
-                    Learn about signals, transmission media, network topologies, the OSI model, TCP/IP protocols, and network security fundamentals.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item active" onclick="window.location.href='networking_guide.html'">
-                        <div class="lesson-info">
-                            <i class="fas fa-globe lesson-icon"></i>
-                            <span class="lesson-name">IP Addressing & Networking</span>
-                            <span class="badge bg-success badge-custom">Available</span>
-                        </div>
-                        <i class="fas fa-arrow-right lesson-arrow"></i>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Signals & Transmission Media</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Network Topologies</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">OSI Model & TCP/IP</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Network Security</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                </ul>
+            <div class="card mb-4 border-0 shadow-sm unit-card transition border-primary">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">6</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-network-wired text-primary"></i> Data Communication and Networking
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Learn about signals, transmission media, network topologies, the OSI model, TCP/IP protocols, and network security fundamentals.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="networking_guide.html" class="list-group-item list-group-item-action lesson-item bg-primary text-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-globe me-2"></i>
+                                    <span>IP Addressing & Networking</span>
+                                </div>
+                                <span class="badge bg-success">Available <i class="fas fa-arrow-right ms-1"></i></span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Signals & Transmission Media</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Network Topologies</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>OSI Model & TCP/IP</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Network Security</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 7: Information Systems -->
-            <div class="unit-card">
-                <div class="unit-number">7</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-project-diagram"></i> Information Systems
-                </h3>
-                <p class="unit-description">
-                    Understand different types of information systems, the System Development Life Cycle (SDLC), and structured analysis and design methodologies like DFD and UML.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Types of Information Systems</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">System Development Life Cycle (SDLC)</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">DFD & UML Diagrams</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                </ul>
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">7</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-project-diagram text-primary"></i> Information Systems
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Understand different types of information systems, the System Development Life Cycle (SDLC), and structured analysis and design methodologies like DFD and UML.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Types of Information Systems</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>System Development Life Cycle (SDLC)</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>DFD & UML Diagrams</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 8: Databases -->
-            <div class="unit-card">
-                <div class="unit-number">8</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-database"></i> Databases
-                </h3>
-                <p class="unit-description">
-                    Master data modeling, Entity-Relationship (ER) diagrams, database normalization (1NF-3NF), and SQL queries for database management.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Data Modeling & ER Diagrams</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Normalization (1NF, 2NF, 3NF)</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">SQL Queries & Database Operations</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                </ul>
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">8</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-database text-primary"></i> Databases
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Master data modeling, Entity-Relationship (ER) diagrams, database normalization (1NF-3NF), and SQL queries for database management.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Data Modeling & ER Diagrams</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Normalization (1NF, 2NF, 3NF)</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>SQL Queries & Database Operations</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 9: Programming -->
-            <div class="unit-card">
-                <div class="unit-number">9</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-code"></i> Programming
-                </h3>
-                <p class="unit-description">
-                    Develop practical programming skills using Python or Pascal, covering control structures, Object-Oriented Programming basics, functions, and file handling.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Control Structures (If, Loops)</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Functions & Procedures</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">OOP Basics (Classes, Objects)</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">File Handling</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                </ul>
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">9</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-code text-primary"></i> Programming
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Develop practical programming skills using Python or Pascal, covering control structures, Object-Oriented Programming basics, functions, and file handling.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Control Structures (If, Loops)</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Functions & Procedures</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>OOP Basics (Classes, Objects)</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>File Handling</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 10: Web Development -->
-            <div class="unit-card">
-                <div class="unit-number">10</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-laptop-code"></i> Web Development
-                </h3>
-                <p class="unit-description">
-                    Create dynamic websites using HTML, CSS, PHP, and integrate them with MySQL databases for full-stack web development.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">HTML5 & CSS3 Fundamentals</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">PHP Programming</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">MySQL Database Integration</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                </ul>
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">10</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-laptop-code text-primary"></i> Web Development
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Create dynamic websites using HTML, CSS, PHP, and integrate them with MySQL databases for full-stack web development.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>HTML5 & CSS3 Fundamentals</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>PHP Programming</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>MySQL Database Integration</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 11: Internet of Things (IoT) -->
-            <div class="unit-card">
-                <div class="unit-number">11</div>
-                <h3 class="unit-title">
-                    <i class="fas fa-wifi"></i> Internet of Things (IoT)
-                </h3>
-                <p class="unit-description">
-                    Discover embedded systems, sensors, actuators, and learn basic programming for IoT platforms like Arduino to create smart devices.
-                </p>
-                
-                <ul class="lesson-list">
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Introduction to IoT & Embedded Systems</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa-lock lesson-icon"></i>
-                            <span class="lesson-name">Sensors & Actuators</span>
-                            <span class="badge bg-secondary badge-custom">Coming Soon</span>
-                        </div>
-                    </li>
-                    <li class="lesson-item locked">
-                        <div class="lesson-info">
-                            <i class="fas fa
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">11</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-wifi text-primary"></i> Internet of Things (IoT)
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Discover embedded systems, sensors, actuators, and learn basic programming for IoT platforms like Arduino to create smart devices.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Introduction to IoT & Embedded Systems</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Sensors & Actuators</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Arduino Programming Basics</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 12: E-Business and Future Trends -->
+            <div class="card mb-4 border-0 shadow-sm unit-card transition">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary rounded-pill fs-5 mb-3">12</span>
+                    <h4 class="card-title mb-3">
+                        <i class="fas fa-rocket text-primary"></i> E-Business and Future Trends
+                    </h4>
+                    <p class="card-text text-muted mb-4">
+                        Explore e-commerce models, digital marketing, Artificial Intelligence (AI), blockchain technology, and cloud computing concepts.
+                    </p>
+                    
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>E-Commerce Models & Digital Marketing</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-lock me-2"></i>
+                                    <span>Artificial Intelligence Basics</span>
+                                </div>
+                                <span class="badge bg-secondary">Coming Soon</span>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action lesson-item locked">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="
